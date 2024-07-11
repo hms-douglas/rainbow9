@@ -279,6 +279,12 @@ background-image: url("data:image/svg+xml,%3Csvg id='svg' version='1.1' xmlns='h
 td .s100::before {
     content: "v1.0.0";
 }
+.s110::before {
+    content: "Since v1.1.0";
+}
+td .s110::before {
+    content: "v1.1.0";
+}
 .d {
     background-color: var(--c_deprecated);
 }
@@ -478,6 +484,12 @@ pre:hover code .btn_copy {
 .multiline-list_item::before {
     content: "◈";
     margin-right: 8px;
+}
+.multiline-list_item.sub {
+    margin-left: 20px;
+}
+.multiline-list_item.sub::before {
+    content: "-";
 }
 #latest {
     display: inline-block !important;

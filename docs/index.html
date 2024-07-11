@@ -191,7 +191,7 @@
                     </div>
 
 <pre><code class="language-javascript">
-&lt;script src="https://cdn.jsdelivr.net/gh/hms-douglas/rainbow9@1.0.0/dist/r9.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/hms-douglas/rainbow9@1.1.0/dist/r9.min.js"&gt;&lt;/script&gt;
 </code></pre>
                 </div>
 
@@ -227,57 +227,57 @@
                         <td>RGB</td>
                         <td>"rgb(255, 255, 255)"<br>or<br>"rgba(255, 255, 255, 0.9)"</td>
                         <td>[255, 255, 255]<br>or<br>[255, 255, 255, 0.9]</td>
-                        <td>TYPE_RGB</td>
+                        <td>TYPE.RGB</td>
                         <td>Values go from 0 to 255.</td>
-                        <td><span class="s s100"></span></td>
+                        <td><span class="s s110"></span></td>
                     </tr>
                     <tr>
                         <td>HEX</td>
                         <td>"#FFFFFF"<br>or<br>"#FFFFFFFF"</td>
                         <td>-</td>
-                        <td>TYPE_HEX</td>
+                        <td>TYPE.HEX</td>
                         <td>-</td>
-                        <td><span class="s s100"></span></td>
+                        <td><span class="s s110"></span></td>
                     </tr>
                     <tr>
                         <td>CMYK</td>
                         <td>"cmyk(100%, 100%, 100%, 100%)"<br>or<br>"cmyka(100%, 100%, 100%, 100%, 0.9)"</td>
                         <td>[100, 100, 100, 100]<br>or<br>[100, 100, 100, 100, 0.9]</td>
-                        <td>TYPE_CMYK</td>
+                        <td>TYPE.CMYK</td>
                         <td>Values go from 0 to 100. Symbols are not required.</td>
-                        <td><span class="s s100"></span></td>
+                        <td><span class="s s110"></span></td>
                     </tr>
                     <tr>
                         <td>HSL</td>
                         <td>"hls(360º, 100%, 100%)"<br>or<br>"hlsa(360°, 100%, 100%, 0.9)"</td>
                         <td>[360, 100, 100]<br>or<br>[360, 100, 100, 0.9]</td>
-                        <td>TYPE_HSL</td>
+                        <td>TYPE.HSL</td>
                         <td>First value (hue) goes from 0 to 360. The others go from 0 to 100. Symbols are not required, but accepted.</td>
-                        <td><span class="s s100"></span></td>
+                        <td><span class="s s110"></span></td>
                     </tr>
                     <tr>
                         <td>HSV</td>
                         <td>"hlv(360º, 100%, 100%)"<br>or<br>"hlva(360°, 100%, 100%, 0.9)"</td>
                         <td>[360, 100, 100]<br>or<br>[360, 100, 100, 0.9]</td>
-                        <td>TYPE_HSV</td>
+                        <td>TYPE.HSV</td>
                         <td>First value (hue) goes from 0 to 360. The others go from 0 to 100. Symbols are not required, but accepted.</td>
-                        <td><span class="s s100"></span></td>
+                        <td><span class="s s110"></span></td>
                     </tr>
                     <tr>
                         <td>Lab</td>
                         <td>"Lab(100, 0, 0)"<br>or<br>"Laba(100, 0, 0, 0.9)"</td>
                         <td>[100, 0, 0]<br>or<br>[100, 0, 0, 0.9]</td>
-                        <td>TYPE_LAB</td>
+                        <td>TYPE.LAB</td>
                         <td>First value (lightness) goes from 0 to 100. The others go from -128 to 127.</td>
-                        <td><span class="s s100"></span></td>
+                        <td><span class="s s110"></span></td>
                     </tr>
                     <tr>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td>TYPE_TO_ALL</td>
+                        <td>TYPE.TO_ALL</td>
                         <td>Accepted only as a output format ("toType"). Will return the color in all formats listed above.</td>
-                        <td><span class="s s100"></span></td>
+                        <td><span class="s s110"></span></td>
                     </tr>
                 </tbody>
             </table>
@@ -381,16 +381,16 @@
                         <span class="title">Example</span>
     
 <pre><code class="language-javascript">
-R9.parseColor("#FFFFFF", R9.TYPE_RGB);
+R9.parseColor("#FFFFFF", R9.TYPE.RGB);
 //Returns: [255, 255, 255]
 
-R9.parseColor("rgba(124, 154, 219, 215)", R9.TYPE_HSL, {"alpha" : 1, "decimal" : 3});
+R9.parseColor("rgba(124, 154, 219, 215)", R9.TYPE.HSL, {"alpha" : 1, "decimal" : 3});
 //Returns: [221, 57, 67, 0.843]
 
-R9.parseColor("#44599CFF", R9.TYPE_HSL, {"alpha" : 255, "decimal" : 3, "string" : true});
+R9.parseColor("#44599CFF", R9.TYPE.HSL, {"alpha" : 255, "decimal" : 3, "string" : true});
 //Returns: 'hsl(226°, 39%, 44%, 255)'
 
-R9.parseColor("#44599CFF", R9.TYPE_TO_ALL, {"alpha" : 1, "decimal" : 3, "string" : true, "symbols" : false});
+R9.parseColor("#44599CFF", R9.TYPE.TO_ALL, {"alpha" : 1, "decimal" : 3, "string" : true, "symbols" : false});
 /*
 Returns:
     {
@@ -448,13 +448,13 @@ Returns:
                         <span class="title">Example</span>
     
 <pre><code class="language-javascript">
-R9.parseColorArray([255, 0, 255, 215], R9.TYPE_RGB, R9.TYPE_HEX);
+R9.parseColorArray([255, 0, 255, 215], R9.TYPE.RGB, R9.TYPE.HEX);
 //Returns: '#FF00FF'
 
-R9.parseColorArray([221, 57, 67, 0.843], R9.TYPE_HSL, R9.TYPE_RGB, {"alpha" : 1, "decimal" : 3});
+R9.parseColorArray([221, 57, 67, 0.843], R9.TYPE.HSL, R9.TYPE.RGB, {"alpha" : 1, "decimal" : 3});
 //Returns: [122.9, 152.9, 218.8, 0.843]
 
-R9.parseColorArray([301, 94, 38], R9.TYPE_HSV, R9.TYPE_TO_ALL, {"decimal" : 0});
+R9.parseColorArray([301, 94, 38], R9.TYPE.HSV, R9.TYPE.TO_ALL, {"decimal" : 0});
 /*
 Returns:
     {
@@ -492,59 +492,59 @@ Returns:
                             </tr>
                             <tr>
                                 <td>Complementary</td>
-                                <td>SCHEME_COMPLEMENTARY</td>
+                                <td>SCHEME.COMPLEMENTARY</td>
                                 <td>1</td>
                                 <td>-</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Split complementary</td>
-                                <td>SCHEME_SPLIT_COMPLEMENTARY</td>
+                                <td>SCHEME.SPLIT_COMPLEMENTARY</td>
                                 <td>2</td>
                                 <td>-</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Triadic</td>
-                                <td>SCHEME_TRIADIC</td>
+                                <td>SCHEME.TRIADIC</td>
                                 <td>2</td>
                                 <td>-</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Tetradic</td>
-                                <td>SCHEME_TETRADIC</td>
+                                <td>SCHEME.TETRADIC</td>
                                 <td>3</td>
                                 <td>-</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Square</td>
-                                <td>SCHEME_SQUARE</td>
+                                <td>SCHEME.SQUARE</td>
                                 <td>3</td>
                                 <td>-</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Analogous</td>
-                                <td>SCHEME_ANALOGOUS</td>
+                                <td>SCHEME.ANALOGOUS</td>
                                 <td>2</td>
                                 <td>-</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Monochromatic</td>
-                                <td>SCHEME_MONOCHROMATIC</td>
+                                <td>SCHEME.MONOCHROMATIC</td>
                                 <td>1</td>
                                 <td>-</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>-</td>
-                                <td>SCHEME_TO_ALL</td>
+                                <td>SCHEME.TO_ALL</td>
                                 <td>-</td>
                                 <td>Will return an object with all schemes listed above.</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -621,16 +621,16 @@ Returns:
                         <span class="title">Example</span>
     
 <pre><code class="language-javascript">
-R9.harmonyForColor("#FF0000", R9.SCHEME_COMPLEMENTARY, R9.TYPE_RGB);
+R9.harmonyForColor("#FF0000", R9.SCHEME.COMPLEMENTARY, R9.TYPE.RGB);
 //Returns: [[0, 254, 255]] 
 
-R9.harmonyForColor("cmyk(50, 15, 12, 36)", R9.SCHEME_TRIADIC, R9.TYPE_HEX, {"includeColor" : true, "symbols" : false});
+R9.harmonyForColor("cmyk(50, 15, 12, 36)", R9.SCHEME.TRIADIC, R9.TYPE.HEX, {"includeColor" : true, "symbols" : false});
 //Returns: ['518A90', '90518A', '8A9051']
 
-R9.harmonyForColor("cmyk(50, 15, 12, 36)", R9.SCHEME_TRIADIC, R9.TYPE_CMYK);
+R9.harmonyForColor("cmyk(50, 15, 12, 36)", R9.SCHEME.TRIADIC, R9.TYPE.CMYK);
 //Returns: [[0, 44, 4, 44], [4, 0, 44, 44]]
 
-R9.harmonyForColor("#7ba644", R9.SCHEME_TO_ALL, R9.TYPE_RGB);
+R9.harmonyForColor("#7ba644", R9.SCHEME.TO_ALL, R9.TYPE.RGB);
 /*
 Returns:
     {
@@ -645,7 +645,7 @@ Returns:
     }
 */
 
-R9.harmonyForColor("#7ba644", R9.SCHEME_TO_ALL, R9.TYPE_RGB, {"string" : true});
+R9.harmonyForColor("#7ba644", R9.SCHEME.TO_ALL, R9.TYPE.RGB, {"string" : true});
 /*
 Returns:
     {
@@ -711,7 +711,7 @@ Returns:
                         <span class="title">Example</span>
     
 <pre><code class="language-javascript">
-R9.harmonyForColor("#7ba644", R9.SCHEME_TO_ALL, R9.TYPE_RGB, {"string" : true});
+R9.harmonyForColor("#7ba644", R9.SCHEME.TO_ALL, R9.TYPE.RGB, {"string" : true});
 /*
 Returns:
     {
@@ -901,10 +901,10 @@ Returns:
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.shadesForColor("#FF0000", R9.TYPE_HEX);
+R9.shadesForColor("#FF0000", R9.TYPE.HEX);
 //Returns: ['#FF0000', '#E30000', '#C60000', '#AA0000', '#8E0000', '#710000', '#550000', '#390000', '#1C0000', '#000000']
 
-R9.shadesForColor("rgb(255, 100, 20)", R9.TYPE_HSV, {"alpha" : 255});
+R9.shadesForColor("rgb(255, 100, 20)", R9.TYPE.HSV, {"alpha" : 255});
 /*
 Returns: 
     [
@@ -921,7 +921,7 @@ Returns:
     ]
 */
 
-R9.shadesForColor("rgb(255, 100, 20)", R9.TYPE_RGB, {"amount" : 5, "string" : true});
+R9.shadesForColor("rgb(255, 100, 20)", R9.TYPE.RGB, {"amount" : 5, "string" : true});
 /*
 Returns:
     [
@@ -977,7 +977,7 @@ Returns:
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.shadesForColorArray([255, 100, 20], R9.TYPE_RGB, R9.TYPE_RGB, {"amount" : 5, "string" : true});
+R9.shadesForColorArray([255, 100, 20], R9.TYPE.RGB, R9.TYPE.RGB, {"amount" : 5, "string" : true});
 /*
 Returns:
     [
@@ -1027,10 +1027,10 @@ Returns:
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.tintsForColor("#FF0000", R9.TYPE_HEX);
+R9.tintsForColor("#FF0000", R9.TYPE.HEX);
 //Returns: ['#FF0000', '#FF1C1C', '#FF3939', '#FF5555', '#FF7171', '#FF8E8E', '#FFAAAA', '#FFC6C6', '#FFE3E3', '#FFFFFF']
 
-R9.shadesForColor("rgb(255, 100, 20)", R9.TYPE_HSV, {"alpha" : 255});
+R9.shadesForColor("rgb(255, 100, 20)", R9.TYPE.HSV, {"alpha" : 255});
 /*
 Returns: 
     [
@@ -1047,7 +1047,7 @@ Returns:
     ]
 */
 
-R9.tintsForColor("rgb(255, 100, 20)", R9.TYPE_RGB, {"amount" : 5, "string" : true});
+R9.tintsForColor("rgb(255, 100, 20)", R9.TYPE.RGB, {"amount" : 5, "string" : true});
 /*
 Returns:
     [
@@ -1103,7 +1103,7 @@ Returns:
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.tintsForColorArray([255, 100, 20], R9.TYPE_RGB, R9.TYPE_RGB, {"amount" : 5, "string" : true});
+R9.tintsForColorArray([255, 100, 20], R9.TYPE.RGB, R9.TYPE.RGB, {"amount" : 5, "string" : true});
 /*
 Returns:
     [
@@ -1153,10 +1153,10 @@ Returns:
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.tonesForColor("#FF0000", R9.TYPE_HEX);
+R9.tonesForColor("#FF0000", R9.TYPE.HEX);
 //Returns: '#FF0000', '#F10E0E', '#E31C1C', '#D52B2B', '#C63939', '#B84747', '#AA5555', '#9C6363', '#8E7171', '#808080'
 
-R9.tonesForColor("rgb(255, 100, 20)", R9.TYPE_HSV, {"alpha" : 255});
+R9.tonesForColor("rgb(255, 100, 20)", R9.TYPE.HSV, {"alpha" : 255});
 /*
 Returns: 
     [
@@ -1173,7 +1173,7 @@ Returns:
     ]
 */
 
-R9.tonesForColor("rgb(255, 100, 20)", R9.TYPE_RGB, {"amount" : 5, "string" : true});
+R9.tonesForColor("rgb(255, 100, 20)", R9.TYPE.RGB, {"amount" : 5, "string" : true});
 /*
 Returns:
     [
@@ -1229,7 +1229,7 @@ Returns:
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-    R9.tonesForColorArray([255, 100, 20], R9.TYPE_RGB, R9.TYPE_TO_ALL, {"amount" : 4, "string" : true, "decimal" : 0, "symbols" : false});
+    R9.tonesForColorArray([255, 100, 20], R9.TYPE.RGB, R9.TYPE.TO_ALL, {"amount" : 4, "string" : true, "decimal" : 0, "symbols" : false});
 /*
 Returns:
     [
@@ -1290,27 +1290,27 @@ Returns:
                             </tr>
                             <tr>
                                 <td>Large text (WCAG AA)</td>
-                                <td>WCAG_AA_LARGE</td>
+                                <td>WCAG.AA_LARGE</td>
                                 <td>If contrast ratio is less than 0.3333... for large text in AA-level.</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Normal text (WCAG AA)</td>
-                                <td>WCAG_AA_NORMAL</td>
+                                <td>WCAG.AA_NORMAL</td>
                                 <td>If contrast ratio is less than 0.2222... for large text in AAA-level.</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Large text (WCAG AAA)</td>
-                                <td>WCAG_AAA_LARGE</td>
+                                <td>WCAG.AAA_LARGE</td>
                                 <td>If contrast ratio is less than 0.2222... for small text in AA-level.</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                             <tr>
                                 <td>Normal text (WCAG AAA)</td>
-                                <td>WCAG_AAA_NORMAL</td>
+                                <td>WCAG.AAA_NORMAL</td>
                                 <td>If contrast ratio is less than 0.142857... for small text in AAA-level.</td>
-                                <td><span class="s s100"></span></td>
+                                <td><span class="s s110"></span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1361,10 +1361,10 @@ R9.constrastRatio("#FFFFFF", "#000");
 R9.constrastRatio("#FFFFFF", "rgb(255,255,255)");
 //Returns: 1
 
-R9.constrastRatio("#665FB2", "#B5DF68", R9.WCAG_AA_LARGE);
+R9.constrastRatio("#665FB2", "#B5DF68", R9.WCAG.AA_LARGE);
 //Returns: true
 
-R9.constrastRatio("#665FB2", "#B5DF68", R9.WCAG_AAA_NORMAL);
+R9.constrastRatio("#665FB2", "#B5DF68", R9.WCAG.AAA_NORMAL);
 //Returns: false
 </code></pre>
                     </div>
@@ -1421,13 +1421,13 @@ R9.constrastRatio("#665FB2", "#B5DF68", R9.WCAG_AAA_NORMAL);
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.constrastRatioArray([255,255,255], [0,0,0], R9.TYPE_RGB, R9.TYPE_RGB);
+R9.constrastRatioArray([255,255,255], [0,0,0], R9.TYPE.RGB, R9.TYPE.RGB);
 //Returns: 0.047619047619047616
 
-R9.constrastRatioArray([255,255,255], [198, 78, 92], R9.TYPE_RGB, R9.TYPE_HSV);
+R9.constrastRatioArray([255,255,255], [198, 78, 92], R9.TYPE.RGB, R9.TYPE.HSV);
 //Returns: 0.42112226100858535
 
-R9.constrastRatioArray([255,255,255], [0,0,0], R9.TYPE_RGB, R9.TYPE_RGB, R9.WCAG_AA_LARGE);
+R9.constrastRatioArray([255,255,255], [0,0,0], R9.TYPE.RGB, R9.TYPE.RGB, R9.WCAG.AA_LARGE);
 //Returns: true
 </code></pre>
                     </div>
@@ -1478,10 +1478,10 @@ R9.constrastRatioArray([255,255,255], [0,0,0], R9.TYPE_RGB, R9.TYPE_RGB, R9.WCAG
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.addColors("#1f4f99", "#ff361c", R9.TYPE_HEX);
+R9.addColors("#1f4f99", "#ff361c", R9.TYPE.HEX);
 //Returns: '#1F0011'
 
-R9.addColors("#1f4f99", "rgb(255, 54, 28)", R9.TYPE_RGB, {"string" : true})
+R9.addColors("#1f4f99", "rgb(255, 54, 28)", R9.TYPE.RGB, {"string" : true})
 //Returns: 'rgb(30.6, 0, 16.8)'
 </code></pre>
                     </div>
@@ -1534,10 +1534,10 @@ R9.addColors("#1f4f99", "rgb(255, 54, 28)", R9.TYPE_RGB, {"string" : true})
                     <div class="block sub_block">
                         <span class="title">Example</span>
 <pre><code class="language-javascript">
-R9.addColorsArray([255, 230, 0], [3, 213, 255], R9.TYPE_RGB, R9.TYPE_RGB, R9.TYPE_HEX);
+R9.addColorsArray([255, 230, 0], [3, 213, 255], R9.TYPE.RGB, R9.TYPE.RGB, R9.TYPE.HEX);
 //Returns: '#03BD00'
 
-R9.addColorsArray([255, 230, 0], [3, 213, 255], R9.TYPE_RGB, R9.TYPE_RGB, R9.TYPE_HSL, {"string" : true, "symbols" : false});
+R9.addColorsArray([255, 230, 0], [3, 213, 255], R9.TYPE.RGB, R9.TYPE.RGB, R9.TYPE.HSL, {"string" : true, "symbols" : false});
 //Returns: 'hsl(119, 100, 37)'
 </code></pre>
                     </div>
@@ -1562,7 +1562,7 @@ R9.addColorsArray([255, 230, 0], [3, 213, 255], R9.TYPE_RGB, R9.TYPE_RGB, R9.TYP
                                 <td>toType</td>
                                 <td>String or <span class="text_link" data-goto="TYPES">R9 type constant</span></td>
                                 <td>No</td>
-                                <td>The color space at which the color will be parsed to. By default this parameter is set to TYPE_RBG</td>
+                                <td>The color space at which the color will be parsed to. By default this parameter is set to TYPE.RBG</td>
                             </tr>
                             <tr>
                                 <td>options</td>
@@ -1579,13 +1579,13 @@ R9.addColorsArray([255, 230, 0], [3, 213, 255], R9.TYPE_RGB, R9.TYPE_RGB, R9.TYP
 R9.randomColor();
 //Returns: [245, 79, 84] //Example
 
-R9.randomColor(R9.TYPE_CMYK);
+R9.randomColor(R9.TYPE.CMYK);
 //Returns: [0, 18, 86, 11] //Example
 
-R9.randomColor(R9.TYPE_HEX, {"amount" : 2});
+R9.randomColor(R9.TYPE.HEX, {"amount" : 2});
 //Returns: ['#2A5DBF', '#A3F07E'] //Example
 
-R9.randomColor(R9.TYPE_RGB, {"string" : true, "alpha" : 255, "decimal" : 0, "amount" : 2});
+R9.randomColor(R9.TYPE.RGB, {"string" : true, "alpha" : 255, "decimal" : 0, "amount" : 2});
 //Returns: ['rgb(85, 48, 65, 255)', 'rgb(164, 13, 41, 154)'] //Example
 </code></pre>
                     </div>
@@ -1599,11 +1599,16 @@ R9.randomColor(R9.TYPE_RGB, {"string" : true, "alpha" : 255, "decimal" : 0, "amo
             <div class="block sub_block" id="EXTRAS_COLOR">
                 <span class="title">Color</span>
 
+
                 <span class="text">
-                    <p>The library contains an object called "Color" with 148 colors. These colors represent the default html colors in HEX format. They are: </p>
+                    <p>The library contains an object called "Color" with 149 colors. These colors represent the default html colors in HEX format. They are: </p>
                 </span>
 
                 <div class="colors">
+                    <span class="subtitle s s110"></span>
+                    <div data-c="transparent" style="background-color: #00000000; color: #000000;"></div>
+
+                    <span class="subtitle s s100"></span>
                     <div data-c="black" style="background-color: #000000; color: #FFFFFF;"></div><div data-c="navy" style="background-color: #000080; color: #FFFFFF;"></div><div data-c="darkBlue" style="background-color: #00008B; color: #FFFFFF;"></div><div data-c="mediumBlue" style="background-color: #0000CD; color: #FFFFFF;"></div><div data-c="blue" style="background-color: #0000FF; color: #FFFFFF;"></div><div data-c="darkGreen" style="background-color: #006400; color: #FFFFFF;"></div><div data-c="green" style="background-color: #008000; color: #FFFFFF;"></div><div data-c="teal" style="background-color: #008080; color: #FFFFFF;"></div><div data-c="darkCyan" style="background-color: #008B8B; color: #000000;"></div><div data-c="deepSkyBlue" style="background-color: #00BFFF; color: #000000;"></div><div data-c="darkTurquoise" style="background-color: #00CED1; color: #000000;"></div><div data-c="mediumSpringGreen" style="background-color: #00FA9A; color: #000000;"></div><div data-c="lime" style="background-color: #00FF00; color: #000000;"></div><div data-c="springGreen" style="background-color: #00FF7F; color: #000000;"></div><div data-c="aqua" style="background-color: #00FFFF; color: #000000;"></div><div data-c="cyan" style="background-color: #00FFFF; color: #000000;"></div><div data-c="midnightBlue" style="background-color: #191970; color: #FFFFFF;"></div><div data-c="dodgerBlue" style="background-color: #1E90FF; color: #000000;"></div><div data-c="lightSeaGreen" style="background-color: #20B2AA; color: #000000;"></div><div data-c="forestGreen" style="background-color: #228B22; color: #000000;"></div><div data-c="seaGreen" style="background-color: #2E8B57; color: #000000;"></div><div data-c="darkSlateGray" style="background-color: #2F4F4F; color: #FFFFFF;"></div><div data-c="darkSlateGrey" style="background-color: #2F4F4F; color: #FFFFFF;"></div><div data-c="limeGreen" style="background-color: #32CD32; color: #000000;"></div><div data-c="mediumSeaGreen" style="background-color: #3CB371; color: #000000;"></div><div data-c="turquoise" style="background-color: #40E0D0; color: #000000;"></div><div data-c="royalBlue" style="background-color: #4169E1; color: #FFFFFF;"></div><div data-c="steelBlue" style="background-color: #4682B4; color: #000000;"></div><div data-c="darkSlateBlue" style="background-color: #483D8B; color: #FFFFFF;"></div><div data-c="mediumTurquoise" style="background-color: #48D1CC; color: #000000;"></div><div data-c="indigo" style="background-color: #4B0082; color: #FFFFFF;"></div><div data-c="darkOliveGreen" style="background-color: #556B2F; color: #FFFFFF;"></div><div data-c="cadetBlue" style="background-color: #5F9EA0; color: #000000;"></div><div data-c="cornflowerBlue" style="background-color: #6495ED; color: #000000;"></div><div data-c="rebeccaPurple" style="background-color: #663399; color: #FFFFFF;"></div><div data-c="mediumAquaMarine" style="background-color: #66CDAA; color: #000000;"></div><div data-c="dimGray" style="background-color: #696969; color: #FFFFFF;"></div><div data-c="dimGrey" style="background-color: #696969; color: #FFFFFF;"></div><div data-c="slateBlue" style="background-color: #6A5ACD; color: #FFFFFF;"></div><div data-c="oliveDrab" style="background-color: #6B8E23; color: #000000;"></div><div data-c="slateGray" style="background-color: #708090; color: #000000;"></div><div data-c="slateGrey" style="background-color: #708090; color: #000000;"></div><div data-c="lightSlateGray" style="background-color: #778899; color: #000000;"></div><div data-c="lightSlateGrey" style="background-color: #778899; color: #000000;"></div><div data-c="mediumSlateBlue" style="background-color: #7B68EE; color: #000000;"></div><div data-c="lawnGreen" style="background-color: #7CFC00; color: #000000;"></div><div data-c="chartreuse" style="background-color: #7FFF00; color: #000000;"></div><div data-c="aquamarine" style="background-color: #7FFFD4; color: #000000;"></div><div data-c="maroon" style="background-color: #800000; color: #FFFFFF;"></div><div data-c="purple" style="background-color: #800080; color: #FFFFFF;"></div><div data-c="olive" style="background-color: #808000; color: #000000;"></div><div data-c="gray" style="background-color: #808080; color: #000000;"></div><div data-c="grey" style="background-color: #808080; color: #000000;"></div><div data-c="skyBlue" style="background-color: #87CEEB; color: #000000;"></div><div data-c="lightSkyBlue" style="background-color: #87CEFA; color: #000000;"></div><div data-c="blueViolet" style="background-color: #8A2BE2; color: #FFFFFF;"></div><div data-c="darkRed" style="background-color: #8B0000; color: #FFFFFF;"></div><div data-c="darkMagenta" style="background-color: #8B008B; color: #FFFFFF;"></div><div data-c="saddleBrown" style="background-color: #8B4513; color: #FFFFFF;"></div><div data-c="darkSeaGreen" style="background-color: #8FBC8F; color: #000000;"></div><div data-c="lightGreen" style="background-color: #90EE90; color: #000000;"></div><div data-c="mediumPurple" style="background-color: #9370DB; color: #000000;"></div><div data-c="darkViolet" style="background-color: #9400D3; color: #FFFFFF;"></div><div data-c="paleGreen" style="background-color: #98FB98; color: #000000;"></div><div data-c="darkOrchid" style="background-color: #9932CC; color: #FFFFFF;"></div><div data-c="yellowGreen" style="background-color: #9ACD32; color: #000000;"></div><div data-c="sienna" style="background-color: #A0522D; color: #FFFFFF;"></div><div data-c="brown" style="background-color: #A52A2A; color: #FFFFFF;"></div><div data-c="darkGray" style="background-color: #A9A9A9; color: #000000;"></div><div data-c="darkGrey" style="background-color: #A9A9A9; color: #000000;"></div><div data-c="lightBlue" style="background-color: #ADD8E6; color: #000000;"></div><div data-c="greenYellow" style="background-color: #ADFF2F; color: #000000;"></div><div data-c="paleTurquoise" style="background-color: #AFEEEE; color: #000000;"></div><div data-c="lightSteelBlue" style="background-color: #B0C4DE; color: #000000;"></div><div data-c="powderBlue" style="background-color: #B0E0E6; color: #000000;"></div><div data-c="fireBrick" style="background-color: #B22222; color: #FFFFFF;"></div><div data-c="darkGoldenRod" style="background-color: #B8860B; color: #000000;"></div><div data-c="mediumOrchid" style="background-color: #BA55D3; color: #000000;"></div><div data-c="rosyBrown" style="background-color: #BC8F8F; color: #000000;"></div><div data-c="darkKhaki" style="background-color: #BDB76B; color: #000000;"></div><div data-c="silver" style="background-color: #C0C0C0; color: #000000;"></div><div data-c="mediumVioletRed" style="background-color: #C71585; color: #FFFFFF;"></div><div data-c="indianRed " style="background-color: #CD5C5C; color: #000000;"></div><div data-c="peru" style="background-color: #CD853F; color: #000000;"></div><div data-c="chocolate" style="background-color: #D2691E; color: #000000;"></div><div data-c="tan" style="background-color: #D2B48C; color: #000000;"></div><div data-c="lightGray" style="background-color: #D3D3D3; color: #000000;"></div><div data-c="lightGrey" style="background-color: #D3D3D3; color: #000000;"></div><div data-c="thistle" style="background-color: #D8BFD8; color: #000000;"></div><div data-c="orchid" style="background-color: #DA70D6; color: #000000;"></div><div data-c="goldenRod" style="background-color: #DAA520; color: #000000;"></div><div data-c="paleVioletRed" style="background-color: #DB7093; color: #000000;"></div><div data-c="crimson" style="background-color: #DC143C; color: #FFFFFF;"></div><div data-c="gainsboro" style="background-color: #DCDCDC; color: #000000;"></div><div data-c="plum" style="background-color: #DDA0DD; color: #000000;"></div><div data-c="burlyWood" style="background-color: #DEB887; color: #000000;"></div><div data-c="lightCyan" style="background-color: #E0FFFF; color: #000000;"></div><div data-c="lavender" style="background-color: #E6E6FA; color: #000000;"></div><div data-c="darkSalmon" style="background-color: #E9967A; color: #000000;"></div><div data-c="violet" style="background-color: #EE82EE; color: #000000;"></div><div data-c="paleGoldenRod" style="background-color: #EEE8AA; color: #000000;"></div><div data-c="lightCoral" style="background-color: #F08080; color: #000000;"></div><div data-c="khaki" style="background-color: #F0E68C; color: #000000;"></div><div data-c="aliceBlue" style="background-color: #F0F8FF; color: #000000;"></div><div data-c="honeyDew" style="background-color: #F0FFF0; color: #000000;"></div><div data-c="azure" style="background-color: #F0FFFF; color: #000000;"></div><div data-c="sandyBrown" style="background-color: #F4A460; color: #000000;"></div><div data-c="wheat" style="background-color: #F5DEB3; color: #000000;"></div><div data-c="beige" style="background-color: #F5F5DC; color: #000000;"></div><div data-c="whiteSmoke" style="background-color: #F5F5F5; color: #000000;"></div><div data-c="mintCream" style="background-color: #F5FFFA; color: #000000;"></div><div data-c="ghostWhite" style="background-color: #F8F8FF; color: #000000;"></div><div data-c="salmon" style="background-color: #FA8072; color: #000000;"></div><div data-c="antiqueWhite" style="background-color: #FAEBD7; color: #000000;"></div><div data-c="linen" style="background-color: #FAF0E6; color: #000000;"></div><div data-c="lightGoldenRodYellow" style="background-color: #FAFAD2; color: #000000;"></div><div data-c="oldLace" style="background-color: #FDF5E6; color: #000000;"></div><div data-c="red" style="background-color: #FF0000; color: #000000;"></div><div data-c="fuchsia" style="background-color: #FF00FF; color: #000000;"></div><div data-c="magenta" style="background-color: #FF00FF; color: #000000;"></div><div data-c="deepPink" style="background-color: #FF1493; color: #000000;"></div><div data-c="orangeRed" style="background-color: #FF4500; color: #000000;"></div><div data-c="tomato" style="background-color: #FF6347; color: #000000;"></div><div data-c="hotPink" style="background-color: #FF69B4; color: #000000;"></div><div data-c="coral" style="background-color: #FF7F50; color: #000000;"></div><div data-c="darkOrange" style="background-color: #FF8C00; color: #000000;"></div><div data-c="lightSalmon" style="background-color: #FFA07A; color: #000000;"></div><div data-c="orange" style="background-color: #FFA500; color: #000000;"></div><div data-c="lightPink" style="background-color: #FFB6C1; color: #000000;"></div><div data-c="pink" style="background-color: #FFC0CB; color: #000000;"></div><div data-c="gold" style="background-color: #FFD700; color: #000000;"></div><div data-c="peachPuff" style="background-color: #FFDAB9; color: #000000;"></div><div data-c="navajoWhite" style="background-color: #FFDEAD; color: #000000;"></div><div data-c="moccasin" style="background-color: #FFE4B5; color: #000000;"></div><div data-c="bisque" style="background-color: #FFE4C4; color: #000000;"></div><div data-c="mistyRose" style="background-color: #FFE4E1; color: #000000;"></div><div data-c="blanchedAlmond" style="background-color: #FFEBCD; color: #000000;"></div><div data-c="papayaWhip" style="background-color: #FFEFD5; color: #000000;"></div><div data-c="lavenderBlush" style="background-color: #FFF0F5; color: #000000;"></div><div data-c="seaShell" style="background-color: #FFF5EE; color: #000000;"></div><div data-c="cornsilk" style="background-color: #FFF8DC; color: #000000;"></div><div data-c="lemonChiffon" style="background-color: #FFFACD; color: #000000;"></div><div data-c="floralWhite" style="background-color: #FFFAF0; color: #000000;"></div><div data-c="snow" style="background-color: #FFFAFA; color: #000000;"></div><div data-c="yellow" style="background-color: #FFFF00; color: #000000;"></div><div data-c="lightYellow" style="background-color: #FFFFE0; color: #000000;"></div><div data-c="ivory" style="background-color: #FFFFF0; color: #000000;"></div><div data-c="white" style="background-color: #FFFFFF; color: #000000;"></div>
                 </div>
                 <div class="block sub_block">
@@ -1615,10 +1620,13 @@ R9.Color.black
 R9.Color.navajoWhite
 //Returns: '#FFDEAD'
 
-R9.parseColor(R9.Color.white, R9.TYPE_RGB)
+R9.Color.transparent //Since v1.1.0
+//Returns: '#00000000'
+
+R9.parseColor(R9.Color.white, R9.TYPE.RGB)
 //Returns: [255, 255, 255]
 
-R9.parseColor(R9.Color.red, R9.TYPE_RGB, {"string" : true})
+R9.parseColor(R9.Color.red, R9.TYPE.RGB, {"string" : true})
 //Returns: 'rgb(255, 0, 0)'
 </code></pre>
                 </div>
@@ -1629,7 +1637,12 @@ R9.parseColor(R9.Color.red, R9.TYPE_RGB, {"string" : true})
             <span class="title">Log</span>
 
             <div class="text multiline" style="margin-top: 20px;">
-                <p class="multiline-list_item">v1.0.0<span id="latest">Latest</span></p>
+                <p class="multiline-list_item">v1.1.0<span id="latest">Latest</span></p>
+                <p class="multiline-list_item sub">R9 Contants turned into objects;</p>
+                <p class="multiline-list_item sub">"transparent" added to Color object;</p>
+                <p class="multiline-list_item sub">Error while generating the harmony for split complementary scheme fixed.</p>
+
+                <p class="multiline-list_item">v1.0.0</p>
             </div>
         </div>
 
