@@ -1,4 +1,4 @@
-# Rainbow9 :: R9
+# Rainbow9 :: R9 ![Static Badge](https://img.shields.io/badge/version-v1.1.0-green) ![Static Badge](https://img.shields.io/badge/license-MIT-blue) ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/hms-douglas/rainbow9) ![GitHub file size in bytes](https://img.shields.io/github/size/hms-douglas/rainbow9/dist%2Fr9.min.js?color=%23782DE6FF)
 
 Rainbow9 (R9) is a javascript library to do operations with colors, e.g. parsing between color spaces; generating harmony, shades and more.
 <br/>
